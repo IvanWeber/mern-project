@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useHttp } from '../hooks/http.hook'
 import { useMessage } from '../hooks/message.hook'
 import { AuthContext } from '../context/AuthContext'
+import { FeedbackForm } from '../components/FeedbackForm'
 
 export const AuthPage = () => {
   const auth = useContext(AuthContext)
@@ -10,6 +11,12 @@ export const AuthPage = () => {
   const [form, setForm] = useState({
     email: '',
     password: '',
+  })
+
+  const [feedbackForm, setFeedbackForm] = useState({
+    email: '',
+    name: '',
+    message: '',
   })
 
   useEffect(() => {
@@ -23,6 +30,10 @@ export const AuthPage = () => {
 
   const changeHandler = (event) => {
     setForm({ ...form, [event.target.name]: event.target.value })
+  }
+
+  const changeFeedbackFormHandler = (event) => {
+    setFeedbackForm({ ...feedbackForm, [event.target.name]: event.target.value })
   }
 
   const registerHandler = async () => {
@@ -39,9 +50,21 @@ export const AuthPage = () => {
     } catch (e) {}
   }
 
+  const feedbackMessageSendingHandler = async () => {
+    try {
+      const data = await request('/api/feedback', 'POST', { ...feedbackForm })
+      setFeedbackForm({
+        email: '',
+        name: '',
+        message: '',
+      })
+      message(data.message)
+    } catch (e) {}
+  }
+
   return (
     <div className="row">
-      <div className="col s6 offset-s3">
+      <div className="col s8 offset-s3">
         <h1>Сократи Ссылку</h1>
         <div className="card blue darken-1">
           <div className="card-content white-text">
@@ -93,6 +116,7 @@ export const AuthPage = () => {
             </button>
           </div>
         </div>
+      <FeedbackForm changeFeedbackFormHandler={changeFeedbackFormHandler} feedbackForm={feedbackForm} feedbackMessageSendingHandler={feedbackMessageSendingHandler} loading={loading}/>
       </div>
     </div>
   )

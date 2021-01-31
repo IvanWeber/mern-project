@@ -4,11 +4,13 @@ const FeedbackMessage = require('../models/FeedbackMessage')
 const router = Router()
 
 router.post(
-  '/feedback',
+  '',
   [
     check('email', 'Некорректный email').isEmail(),
     check('message', 'Максимальная длина сообщения 2500 символов')
-      .isLength({max: 2500})
+      .isLength({max: 2500}),
+    check('name', 'Максимальная длина имени 50 символов')
+      .isLength({max: 50})
   ], 
   async (req, res) => {
   try {
@@ -22,9 +24,9 @@ router.post(
       })
     }
 
-    const {email, message} = req.body
+    const {name, email, message} = req.body
 
-    const fdbMsg = new FeedbackMessage({email, message})
+    const fdbMsg = new FeedbackMessage({name, email, message})
 
     await fdbMsg.save()
 
