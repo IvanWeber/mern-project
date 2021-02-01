@@ -2,6 +2,7 @@ import React, {useContext, useEffect, useState} from 'react'
 import {useHttp} from '../hooks/http.hook'
 import {AuthContext} from '../context/AuthContext'
 import {useHistory} from 'react-router-dom'
+import {FeedbackForm} from '../components/FeedbackForm'
 
 export const CreatePage = () => {
   const history = useHistory()
@@ -37,7 +38,8 @@ export const CreatePage = () => {
             onKeyPress={pressHandler}
           />
           <label htmlFor="link">Введите ссылку</label>
-        </div>
+        </div>      
+      <FeedbackForm/>
       </div>
     </div>
   )

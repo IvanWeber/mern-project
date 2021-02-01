@@ -1,11 +1,44 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useHttp } from '../hooks/http.hook'
+import { useMessage } from '../hooks/message.hook'
 
-export const FeedbackForm = ({
-  changeFeedbackFormHandler,
-  feedbackForm,
-  feedbackMessageSendingHandler,
-  loading
-}) => {
+export const FeedbackForm = () => {
+  const message = useMessage()
+  const { loading, request, error, clearError } = useHttp()
+  const [feedbackForm, setFeedbackForm] = useState({
+    email: '',
+    name: '',
+    message: '',
+  })
+
+  useEffect(() => {
+    message(error)
+    clearError()
+  }, [error, message, clearError])
+
+  useEffect(() => {
+    window.M.updateTextFields()
+  }, [])
+
+
+  const changeFeedbackFormHandler = (event) => {
+    setFeedbackForm({ ...feedbackForm, [event.target.name]: event.target.value })
+  }
+
+
+  const feedbackMessageSendingHandler = async () => {
+    try {
+      const data = await request('/api/feedback', 'POST', { ...feedbackForm })
+      setFeedbackForm({
+        email: '',
+        name: '',
+        message: '',
+      })
+      message(data.message)
+    } catch (e) {}
+  }
+
+
   return (
     <div className="feedback-form">
       <div className="col s12">

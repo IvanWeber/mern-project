@@ -13,12 +13,6 @@ export const AuthPage = () => {
     password: '',
   })
 
-  const [feedbackForm, setFeedbackForm] = useState({
-    email: '',
-    name: '',
-    message: '',
-  })
-
   useEffect(() => {
     message(error)
     clearError()
@@ -32,10 +26,6 @@ export const AuthPage = () => {
     setForm({ ...form, [event.target.name]: event.target.value })
   }
 
-  const changeFeedbackFormHandler = (event) => {
-    setFeedbackForm({ ...feedbackForm, [event.target.name]: event.target.value })
-  }
-
   const registerHandler = async () => {
     try {
       const data = await request('/api/auth/register', 'POST', { ...form })
@@ -47,18 +37,6 @@ export const AuthPage = () => {
     try {
       const data = await request('/api/auth/login', 'POST', { ...form })
       auth.login(data.token, data.userId)
-    } catch (e) {}
-  }
-
-  const feedbackMessageSendingHandler = async () => {
-    try {
-      const data = await request('/api/feedback', 'POST', { ...feedbackForm })
-      setFeedbackForm({
-        email: '',
-        name: '',
-        message: '',
-      })
-      message(data.message)
     } catch (e) {}
   }
 
@@ -116,7 +94,7 @@ export const AuthPage = () => {
             </button>
           </div>
         </div>
-      <FeedbackForm changeFeedbackFormHandler={changeFeedbackFormHandler} feedbackForm={feedbackForm} feedbackMessageSendingHandler={feedbackMessageSendingHandler} loading={loading}/>
+      <FeedbackForm/>
       </div>
     </div>
   )
