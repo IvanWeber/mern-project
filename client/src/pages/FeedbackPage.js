@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
+import {NavLink} from 'react-router-dom'
 import { useHttp } from '../hooks/http.hook'
 import { useMessage } from '../hooks/message.hook'
 
-export const FeedbackForm = () => {
+export const FeedbackPage = () => {
   const message = useMessage()
   const { loading, request, error, clearError } = useHttp()
   const [feedbackForm, setFeedbackForm] = useState({
@@ -41,7 +42,7 @@ export const FeedbackForm = () => {
 
   return (
     <div className="feedback-form">
-      <div className="col s12">
+      <div className="">
         <strong>Задайте ваш вопрос с помощью формы ниже</strong>
         <div className="row">
           <div className="input-field col s6">
@@ -91,6 +92,7 @@ export const FeedbackForm = () => {
           Отправить
         </button>
       </div>
+      <div className="back-to-main-page"><NavLink to="/">Вернуться на главную страницу</NavLink></div>
     </div>
   )
 }
