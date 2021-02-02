@@ -18,8 +18,16 @@ input.yellow-input:focus {
   box-shadow: 0 1px 0 0 #ffeb3b!important;
 }
 
-.feedback-form {
+.feedback-page {
   margin-top: 100px;
+}
+
+.feedback-page__ask-your-question {
+  font-size: 20px;
+}
+
+.feedback-page__form {
+  margin-top: 50px;
 }
 
 .feedback-link {

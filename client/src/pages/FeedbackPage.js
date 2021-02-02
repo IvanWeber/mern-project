@@ -41,10 +41,10 @@ export const FeedbackPage = () => {
 
 
   return (
-    <div className="feedback-form">
+    <div className="feedback-page">
       <div className="">
-        <strong>Задайте ваш вопрос с помощью формы ниже</strong>
-        <div className="row">
+        <strong className="feedback-page__ask-your-question">Задайте ваш вопрос</strong>
+        <div className="feedback-page__form row">
           <div className="input-field col s6">
             <input
               placeholder="Name"
