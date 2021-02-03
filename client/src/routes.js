@@ -5,6 +5,7 @@ import {CreatePage} from './pages/CreatePage'
 import {DetailPage} from './pages/DetailPage'
 import {AuthPage} from './pages/AuthPage'
 import {FeedbackPage} from './pages/FeedbackPage'
+import { ProfilePage } from './pages/ProfilePage'
 
 
 export const useRoutes = isAuthenticated => {
@@ -19,6 +20,9 @@ export const useRoutes = isAuthenticated => {
         </Route>
         <Route path="/detail/:id">
           <DetailPage />
+        </Route>
+        <Route path="/profile/:id">
+          <ProfilePage />
         </Route>
         <Route path="/feedback">
           <FeedbackPage />
