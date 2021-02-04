@@ -43,6 +43,7 @@ export const Navbar = () => {
           <li><a href="/" onClick={profileHandler}>Мой профиль</a></li>
           <li><NavLink to="/links">Ссылки</NavLink></li>
           <li><NavLink to="/create">Создать ссылку</NavLink></li>
+          <li><NavLink to="/users">Пользователи</NavLink></li>
           <li><NavLink to="/profile-edit">Редактировать профиль</NavLink></li>
           <li><a href="/" onClick={logoutHandler}>Выйти</a></li>
         </ul> 
@@ -50,6 +51,7 @@ export const Navbar = () => {
           <li><a href="/" onClick={profileHandler}>Мой профиль</a></li>
           <li><NavLink to="/links">Ссылки</NavLink></li>
           <li><NavLink to="/create">Создать ссылку</NavLink></li>
+          <li><NavLink to="/users">Пользователи</NavLink></li>
         </ul>
       </div>
     </nav>

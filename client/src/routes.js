@@ -7,6 +7,7 @@ import {AuthPage} from './pages/AuthPage'
 import {FeedbackPage} from './pages/FeedbackPage'
 import { ProfilePage } from './pages/ProfilePage'
 import { ProfileEditPage } from './pages/ProfileEditPage'
+import {UsersPage} from './pages/UsersPage'
 
 
 export const useRoutes = (isAuthenticated, userId) => {
@@ -27,6 +28,9 @@ export const useRoutes = (isAuthenticated, userId) => {
         </Route>
         <Route path="/profile-edit">
           <ProfileEditPage />
+        </Route>
+        <Route path="/users">
+          <UsersPage />
         </Route>
         <Route path="/feedback">
           <FeedbackPage />
