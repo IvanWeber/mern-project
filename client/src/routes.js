@@ -6,9 +6,10 @@ import {DetailPage} from './pages/DetailPage'
 import {AuthPage} from './pages/AuthPage'
 import {FeedbackPage} from './pages/FeedbackPage'
 import { ProfilePage } from './pages/ProfilePage'
+import { ProfileEditPage } from './pages/ProfileEditPage'
 
 
-export const useRoutes = isAuthenticated => {
+export const useRoutes = (isAuthenticated, userId) => {
   if (isAuthenticated) {
     return (
       <Switch>
@@ -24,10 +25,13 @@ export const useRoutes = isAuthenticated => {
         <Route path="/profile/:id">
           <ProfilePage />
         </Route>
+        <Route path="/profile-edit">
+          <ProfileEditPage />
+        </Route>
         <Route path="/feedback">
           <FeedbackPage />
         </Route>
-        <Redirect to="/create" />
+        <Redirect to={"/profile/" + userId} />
       </Switch>
     )
   }

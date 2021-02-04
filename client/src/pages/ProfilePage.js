@@ -28,7 +28,7 @@ export const ProfilePage = () => {
 
   return (
     <div className="row">
-      Profile Page {user.email}
+      Profile Page {user.name}
     </div>
   )
 }
