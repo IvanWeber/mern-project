@@ -26,6 +26,9 @@ export const useRoutes = (isAuthenticated, userId) => {
         <Route path="/profile/:id">
           <ProfilePage />
         </Route>
+        <Route path="/profile/null">
+          <ProfilePage />
+        </Route>
         <Route path="/profile-edit">
           <ProfileEditPage />
         </Route>
