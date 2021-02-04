@@ -1,5 +1,13 @@
 @import "~materialize-css/dist/css/materialize.min.css";
 
+html, body {
+  height: 100%;
+}
+
+.profile-page {
+  margin-top: 50px;
+}
+
 input.yellow-input {
   border-bottom: 1px solid #fff!important;
   box-shadow: 0 1px 0 0 #fff!important;
@@ -37,3 +45,188 @@ input.yellow-input:focus {
 .back-to-main-page {
   margin-top: 100px;
 }
+
+.long-nav-list {
+  margin-right: 150px;
+}
+
+.dropdown-menu {
+  content: url('./img/burger-menu.png');
+  margin-top: 25px;
+  min-width: 50px;
+  max-height: 15px;
+  background-color: white;
+  border: none;
+  box-shadow: none;
+}
+
+.dropdown-menu:hover {
+  content: url('./img/burger-menu.png');
+  margin-top: 25px;
+  min-width: 50px;
+  max-height: 15px;
+  background-color: white;
+  border: none;
+  box-shadow: none;
+}
+
+.dropdown-menu:focus {
+  content: url('./img/burger-menu.png');
+  margin-top: 25px;
+  min-width: 50px;
+  max-height: 15px;
+  background-color: white;
+  border: none;
+  box-shadow: none;
+}
+
+.dropdown-menu:active {
+  content: url('./img/burger-menu.png');
+  margin-top: 25px;
+  min-width: 50px;
+  max-height: 15px;
+  background-color: white;
+  border: none;
+  box-shadow: none;
+}
+
+.dropdown-content {
+  min-width: 150px;
+}
+
+@media only screen and (max-width: 1100px) {
+
+  .dropdown-content {
+    min-width: 150px;
+  }
+
+  .dropdown-menu {
+    content: url('./img/burger-menu.png');
+    margin-top: 25px;
+    min-width: 50px;
+    max-height: 15px;
+    background-color: white;
+    border: none;
+    box-shadow: none;
+  }
+
+  .dropdown-menu:hover {
+    content: url('./img/burger-menu.png');
+    margin-top: 25px;
+    min-width: 50px;
+    max-height: 15px;
+    background-color: white;
+    border: none;
+    box-shadow: none;
+  }
+
+  .dropdown-menu:focus {
+    content: url('./img/burger-menu.png');
+    margin-top: 25px;
+    min-width: 50px;
+    max-height: 15px;
+    background-color: white;
+    border: none;
+    box-shadow: none;
+  }
+
+  .dropdown-menu:active {
+    content: url('./img/burger-menu.png');
+    margin-top: 25px;
+    min-width: 50px;
+    max-height: 15px;
+    background-color: white;
+    border: none;
+    box-shadow: none;
+  }
+}
+
+
+/*Отмена дефолтного стиля materializecss*/
+@media only screen and (max-width: 992px) {
+  .hide-on-med-and-down {
+    display: flex!important;
+  }
+}
+
+
+@media only screen and (max-width: 800px) {
+
+  .long-nav-list {
+    display: none!important;
+  }
+
+  .dropdown-content {
+    min-width: 150px;
+  }
+
+  .dropdown-menu {
+    content: url('./img/burger-menu.png');
+    margin-top: 25px;
+    min-width: 50px;
+    max-height: 15px;
+    background-color: white;
+    border: none;
+    box-shadow: none;
+  }
+
+  .dropdown-menu:hover {
+    content: url('./img/burger-menu.png');
+    margin-top: 25px;
+    min-width: 50px;
+    max-height: 15px;
+    background-color: white;
+    border: none;
+    box-shadow: none;
+  }
+
+  .dropdown-menu:active {
+    content: url('./img/burger-menu.png');
+    margin-top: 25px;
+    min-width: 50px;
+    max-height: 15px;
+    background-color: white;
+    border: none;
+    box-shadow: none;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+
+  .dropdown-content {
+    min-width: 150px;
+  }
+
+  .dropdown-menu {
+    content: url('./img/burger-menu.png');
+    margin-top: 20px;
+    margin-left: 200px;
+    min-width: 50px;
+    max-height: 15px;
+    background-color: white;
+    border: none;
+    box-shadow: none;
+  }
+
+  .dropdown-menu:hover {
+    content: url('./img/burger-menu.png');
+    margin-top: 20px;
+    min-width: 50px;
+    max-height: 15px;
+    background-color: white;
+    border: none;
+    box-shadow: none;
+  }
+
+  .dropdown-menu:active {
+    content: url('./img/burger-menu.png');
+    margin-top: 20px;
+    min-width: 50px;
+    max-height: 15px;
+    background-color: white;
+    border: none;
+    box-shadow: none;
+  }
+}
+
+

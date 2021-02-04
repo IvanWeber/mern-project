@@ -23,7 +23,7 @@ function App() {
     }}>
       <Router>
         {isAuthenticated && <Navbar />}
-        <div className="container">
+        <div className="container main-container">
           {routes}
         </div>
       </Router>

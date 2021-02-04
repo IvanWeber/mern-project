@@ -27,7 +27,7 @@ export const ProfilePage = () => {
   }, [fetchUser])
 
   return (
-    <div className="row">
+    <div className="row profile-page">
       Profile Page {user.name}
     </div>
   )
