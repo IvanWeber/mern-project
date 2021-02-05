@@ -3,6 +3,7 @@ import {useParams} from 'react-router-dom'
 import {useHttp} from '../hooks/http.hook'
 import {AuthContext} from '../context/AuthContext'
 import {BlogForm} from '../components/BlogForm'
+import {BlogPostsList} from '../components/BlogPostsList'
 // import {NavLink, useHistory} from 'react-router-dom'
 
 export const ProfilePage = () => {
@@ -59,18 +60,14 @@ export const ProfilePage = () => {
     fetchBlogPosts()
   }, [fetchBlogPosts])
 
+
   if (userId === authUserId) {
     return (
       <div className="row profile-page">
         Profile Page {user.name}
         <BlogForm authUserId={authUserId}/>
-        {blogPosts.map((post, index) => {
-          return <div className="blog-post">
-                    <h3 className="blog-post__header">{post.heading}</h3>
-                    <div className="blog-post__message">{post.message}</div>
-                    <div className="blog-post__date">{post.date}</div>
-                 </div>
-        })}
+        <BlogPostsList blogPosts={blogPosts} />
+        
       </div>
     )
   }
@@ -78,13 +75,8 @@ export const ProfilePage = () => {
   return (
     <div className="row profile-page">
       Profile Page {user.name}
-      {blogPosts.map((post, index) => {
-          return <div className="blog-post">
-                    <h3 className="blog-post__header">{post.heading}</h3>
-                    <div className="blog-post__message">{post.message}</div>
-                    <div className="blog-post__date">{post.date}</div>
-                 </div>
-        })}
+      <BlogPostsList blogPosts={blogPosts} />
+      
     </div>
   )
 }
