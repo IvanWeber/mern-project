@@ -5,6 +5,7 @@ import {AuthContext} from '../context/AuthContext'
 import {BlogForm} from '../components/BlogForm'
 import {BlogPostsList} from '../components/BlogPostsList'
 import {Loader} from '../components/Loader'
+import {FeedbackLink} from '../components/FeedbackLink'
 // import {NavLink, useHistory} from 'react-router-dom'
 
 export const ProfilePage = () => {
@@ -58,7 +59,7 @@ export const ProfilePage = () => {
         Profile Page {user.name}
         <BlogForm authUserId={authUserId}/>
         <BlogPostsList />
-        
+        <FeedbackLink />
       </div>
     )
   }
@@ -67,7 +68,7 @@ export const ProfilePage = () => {
     <div className="row profile-page">
       Profile Page {user.name}
       <BlogPostsList />
-      
+      <FeedbackLink />
     </div>
   )
 }

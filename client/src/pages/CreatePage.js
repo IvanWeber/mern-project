@@ -1,7 +1,8 @@
 import React, {useContext, useEffect, useState} from 'react'
 import {useHttp} from '../hooks/http.hook'
 import {AuthContext} from '../context/AuthContext'
-import {NavLink, useHistory} from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
+import {FeedbackLink} from '../components/FeedbackLink'
 
 export const CreatePage = () => {
   const history = useHistory()
@@ -38,9 +39,7 @@ export const CreatePage = () => {
           />
           <label htmlFor="link">Введите ссылку</label>
         </div>      
-      <div className="feedback-link">
-        <span>Возникли вопросы? Задайте их с помощью <NavLink to="/feedback">формы обратной связи</NavLink></span>
-      </div>
+        <FeedbackLink />
       </div>
     </div>
   )

@@ -3,6 +3,7 @@ import {useHttp} from '../hooks/http.hook'
 import {AuthContext} from '../context/AuthContext'
 import {Loader} from '../components/Loader'
 import {UsersList} from '../components/UsersList'
+import {FeedbackLink} from '../components/FeedbackLink'
 
 export const UsersPage = () => {
   const [users, setUsers] = useState([])
@@ -31,6 +32,7 @@ export const UsersPage = () => {
   return (
     <>
       {!loading && <UsersList users={users} />}
+      <FeedbackLink />
     </>
   )
 }

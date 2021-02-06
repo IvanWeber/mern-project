@@ -1,7 +1,8 @@
 import React, {useContext, useEffect, useState} from 'react'
 import {useHttp} from '../hooks/http.hook'
 import {AuthContext} from '../context/AuthContext'
-import {NavLink, useHistory} from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
+import {FeedbackLink} from '../components/FeedbackLink'
 
 export const ProfileEditPage = () => {
   const history = useHistory()
@@ -37,10 +38,8 @@ export const ProfileEditPage = () => {
             onKeyPress={pressHandler}
           />
           <label htmlFor="name">Введите ваше имя</label>
-        </div>      
-      <div className="feedback-link">
-        <span>Возникли вопросы? Задайте их с помощью <NavLink to="/feedback">формы обратной связи</NavLink></span>
-      </div>
+        </div>     
+        <FeedbackLink /> 
       </div>
     </div>
   )
