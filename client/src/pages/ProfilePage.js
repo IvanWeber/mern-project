@@ -4,11 +4,12 @@ import {useHttp} from '../hooks/http.hook'
 import {AuthContext} from '../context/AuthContext'
 import {BlogForm} from '../components/BlogForm'
 import {BlogPostsList} from '../components/BlogPostsList'
+import {Loader} from '../components/Loader'
 // import {NavLink, useHistory} from 'react-router-dom'
 
 export const ProfilePage = () => {
   const auth = useContext(AuthContext)
-  const {request} = useHttp()
+  const {loading, request} = useHttp()
   const [user, setUser] = useState('')
   const [authUserId, setAuthUserId] = useState('')
   const userId = useParams().id
@@ -45,6 +46,10 @@ export const ProfilePage = () => {
   useEffect(() => {
     fetchAuthUserId()
   }, [fetchAuthUserId])
+
+  if (loading) {
+    return <Loader/>
+  }
 
 
   if (userId === authUserId) {
