@@ -7,7 +7,6 @@ const router = Router()
 
 router.post('/create', auth, async (req, res) => {
   try {
-    // const blogPostFields  = req.body
     const {heading, message, date, owner}  = req.body
 
 

@@ -6,7 +6,6 @@ import {BlogForm} from '../components/BlogForm'
 import {BlogPostsList} from '../components/BlogPostsList'
 import {Loader} from '../components/Loader'
 import {FeedbackLink} from '../components/FeedbackLink'
-// import {NavLink, useHistory} from 'react-router-dom'
 
 export const ProfilePage = () => {
   const auth = useContext(AuthContext)

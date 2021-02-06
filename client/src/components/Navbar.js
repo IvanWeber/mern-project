@@ -7,7 +7,6 @@ export const Navbar = () => {
   const auth = useContext(AuthContext)
   const history = useHistory()
   const {request} = useHttp()
-  // const [userId, setUserId] = useState
 
   useEffect(() => {
     var elems = document.querySelectorAll('.dropdown-trigger')
@@ -19,18 +18,6 @@ export const Navbar = () => {
     auth.logout()
     history.push('/')
   }
-
-  // const profileHandler = async event => {
-  //   event.preventDefault()
-  //   try {
-  //     const user = await request('/api/profile/user', 'GET', null, {
-  //       Authorization: `Bearer ${auth.token}`
-  //     })
-  //     history.push(`/profile/${user._id}`)
-  //   } catch (e) {
-
-  //   }
-  // }
 
 
   return (
