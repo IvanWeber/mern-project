@@ -8,22 +8,22 @@ html, body {
   margin-top: 50px;
 }
 
-input.yellow-input {
+input.waves-light-input {
   border-bottom: 1px solid #fff!important;
   box-shadow: 0 1px 0 0 #fff!important;
 }
 
-input.yellow-input + label {
+input.waves-light-input + label {
   color: #ffffff!important
 }
 
-input.yellow-input:focus + label {
-  color: #ffeb3b!important
+input.waves-light-input:focus + label {
+  color: #02ecb2!important
 }
 
-input.yellow-input:focus {
-  border-bottom: 1px solid #ffeb3b!important;
-  box-shadow: 0 1px 0 0 #ffeb3b!important;
+input.waves-light-input:focus {
+  border-bottom: 1px solid #02ecb2!important;
+  box-shadow: 0 1px 0 0 #02ecb2!important;
 }
 
 .feedback-page {
