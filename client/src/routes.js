@@ -11,7 +11,7 @@ import {UsersPage} from './pages/UsersPage'
 
 
 export const useRoutes = (isAuthenticated, userId) => {
-  if (isAuthenticated) {
+  if (isAuthenticated && userId !== null) {
     return (
       <Switch>
         <Route path="/links" exact>

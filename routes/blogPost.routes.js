@@ -10,11 +10,6 @@ router.post('/create', auth, async (req, res) => {
     // const blogPostFields  = req.body
     const {heading, message, date, owner}  = req.body
 
-    
-
-    console.log({heading, message, date, owner})
-    console.log(req.user.userId)
-
 
 
     const post = new BlogPost({heading, message, date, owner: req.user.userId});
@@ -24,7 +19,6 @@ router.post('/create', auth, async (req, res) => {
       if (err) return console.log(err);
       // saved!
     })
-    console.log(post)
     res.status(201).json({post})
   } catch (e) {
     res.status(500).json({ message: 'Что-то пошло не так, попробуйте снова' })

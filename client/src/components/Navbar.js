@@ -9,8 +9,6 @@ export const Navbar = () => {
   const {request} = useHttp()
   // const [userId, setUserId] = useState
 
-  console.log(auth)
-
   useEffect(() => {
     var elems = document.querySelectorAll('.dropdown-trigger')
     window.M.Dropdown.init(elems)

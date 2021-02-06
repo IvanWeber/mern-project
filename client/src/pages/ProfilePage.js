@@ -11,7 +11,6 @@ export const ProfilePage = () => {
   const {request} = useHttp()
   const [user, setUser] = useState('')
   const [authUserId, setAuthUserId] = useState('')
-  const [blogPosts, setBlogPosts] = useState([])
   const userId = useParams().id
 
 
@@ -37,16 +36,7 @@ export const ProfilePage = () => {
     }
   }, [auth.token, request])
 
-  const fetchBlogPosts = useCallback(async () => {
-    try {
-      const posts = await request(`/api/blog-post/${userId}`, 'GET', null, {
-        Authorization: `Bearer ${auth.token}`
-      })
-      setBlogPosts(posts)
-    } catch (e) {
 
-    }
-  }, [auth.token, request])
 
   useEffect(() => {
     fetchUser()
@@ -56,17 +46,13 @@ export const ProfilePage = () => {
     fetchAuthUserId()
   }, [fetchAuthUserId])
 
-  useEffect(() => {
-    fetchBlogPosts()
-  }, [fetchBlogPosts])
-
 
   if (userId === authUserId) {
     return (
       <div className="row profile-page">
         Profile Page {user.name}
         <BlogForm authUserId={authUserId}/>
-        <BlogPostsList blogPosts={blogPosts} />
+        <BlogPostsList />
         
       </div>
     )
@@ -75,7 +61,7 @@ export const ProfilePage = () => {
   return (
     <div className="row profile-page">
       Profile Page {user.name}
-      <BlogPostsList blogPosts={blogPosts} />
+      <BlogPostsList />
       
     </div>
   )
