@@ -28,11 +28,22 @@ export const BlogPostsList = () => {
   return (
   <ul className="blog-posts-list">
     {blogPosts.map((post, index) => {
-      return <li key={index} className="blog-post">
-                <h3 className="blog-post__header">{post.heading}</h3>
-                <div className="blog-post__message">{post.message}</div>
-                <div className="blog-post__date">{post.date}</div>
-            </li>
+      return <li className="row">
+      <div claclassNamess="col s12 m6">
+        <div className="card white darken-1">
+          <div className="card-content">
+            <span className="card-title">{post.heading}</span>
+            <p>{post.message}</p>
+          </div>
+          <div className="blog-post__date card-action">{post.date}</div>
+          {/* <div class="card-action">
+            <a href="#">This is a link</a>
+            <a href="#">This is a link</a>
+          </div> */}
+        </div>
+      </div>
+    </li>
+             
     })}
   </ul>
   )
