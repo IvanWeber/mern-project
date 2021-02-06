@@ -78,7 +78,7 @@ export const AuthPage = () => {
           </div>
           <div className="card-action">
             <button
-              className="btn yellow darken-4"
+              className="btn waves-light"
               style={{ marginRight: 10 }}
               disabled={loading}
               onClick={loginHandler}
@@ -86,7 +86,7 @@ export const AuthPage = () => {
               Войти
             </button>
             <button
-              className="btn grey lighten-1 black-text"
+              className="btn waves-light"
               onClick={registerHandler}
               disabled={loading}
             >
