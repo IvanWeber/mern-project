@@ -18,7 +18,7 @@ export const BlogPostsList = () => {
     } catch (e) {
 
     }
-  }, [auth.token, request])
+  }, [userId, auth.token, request])
 
 
   useEffect(() => {
@@ -28,8 +28,8 @@ export const BlogPostsList = () => {
   return (
   <ul className="blog-posts-list">
     {blogPosts.map((post, index) => {
-      return <li className="row">
-      <div claclassNamess="col s12 m6">
+      return <li key={index} className="row">
+      <div className="col s12 m10">
         <div className="card white darken-1">
           <div className="card-content">
             <span className="card-title">{post.heading}</span>
