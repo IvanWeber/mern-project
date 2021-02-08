@@ -1,12 +1,10 @@
 import React, {useContext, useEffect} from 'react'
-import {useHttp} from '../hooks/http.hook'
 import {NavLink, useHistory, Link} from 'react-router-dom'
 import {AuthContext} from '../context/AuthContext'
 
 export const Navbar = () => {
   const auth = useContext(AuthContext)
   const history = useHistory()
-  const {request} = useHttp()
 
   useEffect(() => {
     var elems = document.querySelectorAll('.dropdown-trigger')

@@ -3,10 +3,31 @@ const config = require('config')
 const BlogPost = require('../models/BlogPost')
 const User = require('../models/User')
 const auth = require('../middleware/auth.middleware')
+const { check, validationResult } = require('express-validator')
 const router = Router()
 
-router.post('/create', auth, async (req, res) => {
+router.post(
+  '/create',
+  [
+    check('heading', 'Введите заголовок вашего поста').isLength({
+      min: 1,
+    }),
+    check('message', 'Минимальная длина содержимого поста 1 символ').isLength({
+      min: 1,
+    }),
+  ], 
+  auth, 
+  async (req, res) => {
   try {
+    const errors = validationResult(req)
+
+    if (!errors.isEmpty()) {
+      return res.status(400).json({
+        errors: errors.array(),
+        message: 'Некорректно заполнена форма поста',
+      })
+    }
+
     const {heading, message, date, owner}  = req.body
 
 

@@ -17,6 +17,11 @@ export const BlogForm = ({authUserId}) => {
     })
 
   useEffect(() => {
+    message(error)
+    clearError()
+  }, [error, message, clearError])
+
+  useEffect(() => {
     window.M.updateTextFields()
   }, [])  
   
@@ -35,6 +40,7 @@ export const BlogForm = ({authUserId}) => {
         date: Date.now(),
         owner: authUserId
       })
+      message(data.message)
       history.push(`/profile`)
     } catch (e) {}
   }
