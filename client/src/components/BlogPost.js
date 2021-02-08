@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useCallback} from 'react'
+import React, {useContext, useEffect} from 'react'
 import { useMessage } from '../hooks/message.hook'
 import {useHistory} from 'react-router-dom'
 import {AuthContext} from '../context/AuthContext'
@@ -7,7 +7,7 @@ import {useHttp} from '../hooks/http.hook'
 export const BlogPost = ({post}) => {
   const history = useHistory()
   const auth = useContext(AuthContext)
-  const { loading, request, error, clearError } = useHttp()
+  const { request, error, clearError } = useHttp()
   const message = useMessage()
 
   useEffect(() => {
@@ -21,7 +21,6 @@ export const BlogPost = ({post}) => {
 
   const blogPostRemoveHandler = async (postId) => {
     try {
-      console.log(postId)
       const data = await request(`/api/blog-post/delete/${postId}`, 'POST', null, {
         Authorization: `Bearer ${auth.token}`
       })
@@ -39,9 +38,11 @@ export const BlogPost = ({post}) => {
           </div>
           <div className="blog-post__date card-action">{post.date}</div>
           <div className="card-action">
-            <div className="button-wrapper">
-              <button className="waves-effect waves-light btn-small" onClick={() => blogPostRemoveHandler(post._id)}><i className="material-icons">delete</i></button>
-            </div>
+            {post.owner === auth.userId ? <div className="button-wrapper">
+                                        <button className="waves-effect waves-light btn-small" onClick={() => blogPostRemoveHandler(post._id)}><i className="material-icons">delete</i></button>
+                                      </div>
+            : ''}
+            
           </div>
           {/* <div className="card-action">
             <a href="#">This is a link</a>
