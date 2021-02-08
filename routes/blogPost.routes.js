@@ -45,6 +45,21 @@ router.post(
   }
 })
 
+router.post(
+  '/delete/:id',
+  auth, 
+  async (req, res) => {
+  try {
+
+    await BlogPost.deleteOne({ _id: req.params.id });
+
+
+    res.status(201).json({message: 'Ваш пост успешно удалён'})
+  } catch (e) {
+    res.status(500).json({ message: 'Что-то пошло не так, попробуйте снова' })
+  }
+})
+
 router.get('/user-id', auth, async (req, res) => {
   try {
     const user = await User.findById(req.user.userId)
