@@ -39,7 +39,7 @@ router.post(
       if (err) return console.log(err);
       // saved!
     })
-    res.status(201).json({post})
+    res.status(201).json({message: 'Сообщение успешно отправлено'})
   } catch (e) {
     res.status(500).json({ message: 'Что-то пошло не так, попробуйте снова' })
   }
