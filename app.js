@@ -13,6 +13,7 @@ app.use('/api/profile', require('./routes/profile.routes'))
 app.use('/api/profile-edit', require('./routes/profileEdit.routes'))
 app.use('/api/users', require('./routes/users.routes'))
 app.use('/api/blog-post', require('./routes/blogPost.routes'))
+app.use('/api/comments', require('./routes/comments.routes'))
 app.use('/api/feedback', require('./routes/feedback.routes'))
 app.use('/t', require('./routes/redirect.routes'))
 
