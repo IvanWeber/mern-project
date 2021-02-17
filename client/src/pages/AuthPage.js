@@ -42,7 +42,7 @@ export const AuthPage = () => {
 
   return (
     <div className="row">
-      <div className="col s8 offset-s3">
+      <div className="col s8 offset-s2">
         <h1>Cool Network</h1>
         <div className="card blue darken-1">
           <div className="card-content white-text">
@@ -76,9 +76,9 @@ export const AuthPage = () => {
               </div>
             </div>
           </div>
-          <div className="card-action">
+          <div className="card-action card-auth">
             <button
-              className="btn waves-light"
+              className="btn waves-light card-auth__enter-button"
               style={{ marginRight: 10 }}
               disabled={loading}
               onClick={loginHandler}
@@ -86,7 +86,7 @@ export const AuthPage = () => {
               Войти
             </button>
             <button
-              className="btn waves-light"
+              className="btn waves-light card-auth__registration-button"
               onClick={registerHandler}
               disabled={loading}
             >
