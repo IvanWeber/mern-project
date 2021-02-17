@@ -103,6 +103,14 @@ input.waves-light-input:focus {
   list-style-type: none;
 }
 
+.auth-section {
+  max-width: 500px;
+}
+
+.card-auth {
+  border: none!important;
+}
+
 .card-auth__enter-button {
   margin-bottom: 10px;
   width: 131px
