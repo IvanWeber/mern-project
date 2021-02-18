@@ -79,7 +79,6 @@ export const AuthPage = () => {
           <div className="card-action card-auth">
             <button
               className="btn waves-light card-auth__enter-button"
-              style={{ marginRight: 10 }}
               disabled={loading}
               onClick={loginHandler}
             >

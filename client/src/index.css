@@ -112,11 +112,13 @@ input.waves-light-input:focus {
 }
 
 .card-auth__enter-button {
+  margin-right: 10px;
   margin-bottom: 10px;
   width: 131px
 }
 
 .card-auth__registration-button {
+  margin-right: 10px;
   margin-bottom: 10px;
 }
 
