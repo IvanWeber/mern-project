@@ -32,11 +32,12 @@ export const BlogPostsList = () => {
   <ul className="blog-posts-list">
     {blogPosts.map((post, index) => {
       return <li key={index} className="row">
-              <BlogPost post={post}/>
-              <ul className="comments-list">
-                {post.comments.map((commentId, index) => {return <li key={index} className="row"><Comment commentId={commentId}/></li>})}
-              </ul>
-              <CommentForm blogPostId={post._id} />
+                <BlogPost post={post}/>
+                <div className="comments-describer"><p>Комментарии:</p></div>
+                <ul className="comments-list">
+                  {post.comments.map((commentId, index) => {return <li key={index} className="row"><Comment commentId={commentId}/></li>})}
+                </ul>
+                <CommentForm blogPostId={post._id} />
              </li>
              
     })}
