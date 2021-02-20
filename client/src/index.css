@@ -183,7 +183,7 @@ input.waves-light-input:focus {
 }
 
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 880px) {
 
   .long-nav-list {
     display: none!important;
