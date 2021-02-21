@@ -1,4 +1,4 @@
-import React, {useCallback, useContext, useEffect, useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import {useParams} from 'react-router-dom'
 import {useHttp} from '../hooks/http.hook'
 import {AuthContext} from '../context/AuthContext'
@@ -12,20 +12,22 @@ export const DetailPage = () => {
   const [link, setLink] = useState(null)
   const linkId = useParams().id
 
-  const getLink = useCallback(async () => {
-    try {
-      const fetched = await request(`/api/link/${linkId}`, 'GET', null, {
-        Authorization: `Bearer ${token}`
-      })
-      setLink(fetched)
-    } catch (e) {
-
-    }
-  }, [token, linkId, request])
-
   useEffect(() => {
+    let cleanupFunction = false
+    const getLink = async () => {
+      try {
+        const fetched = await request(`/api/link/${linkId}`, 'GET', null, {
+          Authorization: `Bearer ${token}`
+        })
+        if(!cleanupFunction) setLink(fetched)
+      } catch (e) {
+        console.error(e.message)
+      }
+    }
+
     getLink()
-  }, [getLink])
+    return () => cleanupFunction = true
+  }, [linkId, request, token])
 
   if (loading) {
     return <Loader />

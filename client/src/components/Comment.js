@@ -1,23 +1,16 @@
-import React, {useContext, useEffect, useState, useCallback} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import { useMessage } from '../hooks/message.hook'
-import {useHistory} from 'react-router-dom'
 import {AuthContext} from '../context/AuthContext'
 import {useHttp} from '../hooks/http.hook'
 import {Link} from 'react-router-dom'
 
 export const Comment = ({commentId}) => {
-  const history = useHistory()
   const auth = useContext(AuthContext)
   const { request, error, clearError } = useHttp()
   const message = useMessage()
   const [comment, setComment] = useState('')
   const [user, setUser] = useState('')
-  // const [comment, setBlogPost] = useState({
-  //   heading: '',
-  //   message: '',
-  //   date: Date.now(),
-  //   owner: authUserId
-  //   })
+
   useEffect(() => {
     message(error)
     clearError()
@@ -27,43 +20,27 @@ export const Comment = ({commentId}) => {
     window.M.updateTextFields()
   }, [])  
 
-  // const fetchComment = useCallback(async () => {
-  //   try {
-  //     const comment = await request(`/api/comments/getComment/${commentId}`, 'GET', null, {
-  //       Authorization: `Bearer ${auth.token}`
-  //     })
-  //     setComment(comment)
-  //   } catch (e) {}
-  // }, [request, auth.token, commentId])
-
-  // const fetchUser = useCallback(async () => {
-  //   try {
-  //     const user = await request(`/api/profile/${comment.owner}`, 'GET', null, {
-  //       Authorization: `Bearer ${auth.token}`
-  //     })
-  //     setUser(user)
-  //   } catch (e) {
-
-  //   }
-  // }, [auth.token, request])
-
-  const fetchCommentAndUser = useCallback(async () => {
-    try {
-      const comment = await request(`/api/comments/getComment/${commentId}`, 'GET', null, {
-        Authorization: `Bearer ${auth.token}`
-      })
-      setComment(comment)
-
-      const user = await request(`/api/profile/${comment.owner}`, 'GET', null, {
-        Authorization: `Bearer ${auth.token}`
-      })
-      setUser(user)
-    } catch (e) {}
-  }, [request, auth.token, commentId])
-
   useEffect(() => {
+    let cleanupFunction = false
+    const fetchCommentAndUser = async () => {
+      try {
+        const comment = await request(`/api/comments/getComment/${commentId}`, 'GET', null, {
+          Authorization: `Bearer ${auth.token}`
+        })
+        if(!cleanupFunction) setComment(comment)
+  
+        const user = await request(`/api/profile/${comment.owner}`, 'GET', null, {
+          Authorization: `Bearer ${auth.token}`
+        })
+        if(!cleanupFunction) setUser(user)
+      } catch (e) {
+        console.error(e.message)
+      }
+    }
+
     fetchCommentAndUser()
-  }, [fetchCommentAndUser])
+    return () => cleanupFunction = true
+  }, [auth.token, commentId, request])
 
 
   return (

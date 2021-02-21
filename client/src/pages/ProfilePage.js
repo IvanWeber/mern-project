@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState, useCallback} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import {useParams} from 'react-router-dom'
 import {useHttp} from '../hooks/http.hook'
 import {AuthContext} from '../context/AuthContext'
@@ -14,38 +14,39 @@ export const ProfilePage = () => {
   const [authUserId, setAuthUserId] = useState('')
   const userId = useParams().id
 
-
-  const fetchUser = useCallback(async () => {
-    try {
-      const user = await request(`/api/profile/${userId}`, 'GET', null, {
-        Authorization: `Bearer ${auth.token}`
-      })
-      setUser(user)
-    } catch (e) {
-
+  useEffect(() => {
+    let cleanupFunction = false
+    const fetchUser = async () => {
+      try {
+        const user = await request(`/api/profile/${userId}`, 'GET', null, {
+          Authorization: `Bearer ${auth.token}`
+        })
+        if(!cleanupFunction) setUser(user)
+      } catch (e) {
+        console.error(e.message)
+      }
     }
+
+    fetchUser()
+    return () => cleanupFunction = true
   }, [auth.token, request, userId])
 
-  const fetchAuthUserId = useCallback(async () => {
-    try {
-      const authUserId = await request('/api/blog-post/user-id', 'GET', null, {
-        Authorization: `Bearer ${auth.token}`
-      })
-      setAuthUserId(authUserId)
-    } catch (e) {
-
+  useEffect(() => {
+    let cleanupFunction = false
+    const fetchAuthUserId = async () => {
+      try {
+        const authUserId = await request('/api/blog-post/user-id', 'GET', null, {
+          Authorization: `Bearer ${auth.token}`
+        })
+        if(!cleanupFunction) setAuthUserId(authUserId)
+      } catch (e) {
+        console.error(e.message)
+      }
     }
-  }, [auth.token, request])
 
-
-
-  useEffect(() => {
-    fetchUser()
-  }, [fetchUser])
-
-  useEffect(() => {
     fetchAuthUserId()
-  }, [fetchAuthUserId])
+    return () => cleanupFunction = true
+  }, [auth.token, request])
 
   if (loading) {
     return <Loader/>

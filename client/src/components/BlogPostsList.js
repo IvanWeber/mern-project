@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState, useCallback} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import {useParams} from 'react-router-dom'
 import {AuthContext} from '../context/AuthContext'
 import {useHttp} from '../hooks/http.hook'
@@ -12,21 +12,22 @@ export const BlogPostsList = () => {
   const [blogPosts, setBlogPosts] = useState([])
   const userId = useParams().id
 
-  const fetchBlogPosts = useCallback(async () => {
-    try {
-      const posts = await request(`/api/blog-post/${userId}`, 'GET', null, {
-        Authorization: `Bearer ${auth.token}`
-      })
-      setBlogPosts(posts)
-    } catch (e) {
-
-    }
-  }, [userId, auth.token, request])
-
-
   useEffect(() => {
+    let cleanupFunction = false
+    const fetchBlogPosts = async () => {
+      try {
+        const posts = await request(`/api/blog-post/${userId}`, 'GET', null, {
+          Authorization: `Bearer ${auth.token}`
+        })
+        if(!cleanupFunction) setBlogPosts(posts)
+      } catch (e) {
+        console.error(e.message)
+      }
+    }
+
     fetchBlogPosts()
-  }, [fetchBlogPosts])
+    return () => cleanupFunction = true
+  }, [auth.token, request, userId])
 
   return (
   <ul className="blog-posts-list">

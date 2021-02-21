@@ -24,7 +24,7 @@ export const Navbar = () => {
         <span href="/" className="brand-logo left">Cool Network</span>
 
 
-        <a className='right dropdown-trigger dropdown-menu btn blue darken-1' href='#' data-target='dropdown1'>Menu</a>
+        <a className='right dropdown-trigger dropdown-menu btn blue darken-1' href='/#' data-target='dropdown1'>Menu</a>
         <ul id='dropdown1' className='dropdown-content'>
           {/* <li><a href="/" onClick={profileHandler}>Мой профиль</a></li> */}
           <li><Link to={'/profile/' + auth.userId}>Мой профиль</Link></li>
