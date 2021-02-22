@@ -54,8 +54,8 @@ export const Comment = ({commentId}) => {
         <div className="card-content">
           <p>{comment.message}</p>
         </div>
-        <div className="card-action">
-          <Link to={'/profile/' + user._id}>Пользователь:{user.name}</Link>
+        <div className="commentator-link">
+          <Link to={'/profile/' + user._id}>Пользователь: {user.name}</Link>
         </div>
       </div>
     </div>

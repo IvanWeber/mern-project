@@ -127,6 +127,14 @@ input.waves-light-input:focus {
   width: 100%;
 }
 
+.card-action {
+  text-transform: none!important;
+}
+
+.commentator-link {
+  padding: 5px;
+}
+
 @media only screen and (max-width: 1100px) {
 
   .dropdown-content {
