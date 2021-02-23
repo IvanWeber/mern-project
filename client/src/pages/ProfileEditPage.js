@@ -9,6 +9,7 @@ export const ProfileEditPage = () => {
   const auth = useContext(AuthContext)
   const {request} = useHttp()
   const [name, setName] = useState('')
+  const [file, setFile] = useState('')
 
   useEffect(() => {
     window.M.updateTextFields()
@@ -25,6 +26,26 @@ export const ProfileEditPage = () => {
     }
   }
 
+  const fileChangeHandler = event => {
+    setFile(event.target.files)
+  }
+
+  const formSubmitHandler = async event => {
+    event.preventDefault();
+    const formData = new FormData()
+    const fileReady = file[0]
+    formData.append('myFile', fileReady)
+    formData.append('userId', auth.userId)
+    const response = await fetch('/api/profile-edit/upload-avatar', {
+    method: 'PUT',
+    body: formData,
+    headers: {
+          Authorization: `Bearer ${auth.token}`
+        },
+  });
+    return await response.json(); 
+  }
+
   return (
     <div className="row">
       <div className="col s8 offset-s2" style={{paddingTop: '2rem'}}>
@@ -38,7 +59,12 @@ export const ProfileEditPage = () => {
             onKeyPress={pressHandler}
           />
           <label htmlFor="name">Введите ваше имя</label>
-        </div>     
+        </div>
+        <iframe name="dummyframe" id="dummyframe" style={{display: 'none'}}></iframe>
+          <form method="POST" action="/api/profile-edit/upload-avatar" encType="multipart/form-data" className="my-form" target="dummyframe" onSubmit={formSubmitHandler}>
+            <input type="file" name="file" onChange= {fileChangeHandler}/>
+            <input type="submit" name="upload"/>
+          </form>     
         <FeedbackLink /> 
       </div>
     </div>

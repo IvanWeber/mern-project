@@ -2,8 +2,11 @@ const express = require('express')
 const config = require('config')
 const path = require('path')
 const mongoose = require('mongoose')
+const upload = require('express-fileupload')
 
 const app = express()
+
+app.use(upload()) 
 
 app.use(express.json({extended: true}))
 

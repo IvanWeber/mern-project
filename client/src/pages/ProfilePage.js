@@ -6,6 +6,7 @@ import {BlogForm} from '../components/BlogForm'
 import {BlogPostsList} from '../components/BlogPostsList'
 import {Loader} from '../components/Loader'
 import {FeedbackLink} from '../components/FeedbackLink'
+import avatarURL from '../img/user-avatar.jpg'
 
 export const ProfilePage = () => {
   const auth = useContext(AuthContext)
@@ -48,6 +49,22 @@ export const ProfilePage = () => {
     return () => cleanupFunction = true
   }, [auth.token, request])
 
+  useEffect(() => {
+    let cleanupFunction = false
+    const fetchUserAvatar = async () => {
+      try {
+        const res = await request(`/api/profile/avatar/${userId}`, 'GET', null, {
+          Authorization: `Bearer ${auth.token}`
+        })
+      } catch (e) {
+        console.error(e.message)
+      }
+    }
+
+    fetchUserAvatar()
+    return () => cleanupFunction = true
+  }, [auth.token, request])
+
   if (loading) {
     return <Loader/>
   }
@@ -56,6 +73,7 @@ export const ProfilePage = () => {
   if (userId === authUserId) {
     return (
       <div className="row profile-page">
+        <img src={avatarURL} alt="" width="300px"/>
         Profile Page {user.name}
         <BlogForm authUserId={authUserId}/>
         <BlogPostsList />
@@ -66,6 +84,7 @@ export const ProfilePage = () => {
 
   return (
     <div className="row profile-page">
+    <img src={avatarURL} alt="" width="300px"/>
       Profile Page {user.name}
       <BlogPostsList />
       <FeedbackLink />
