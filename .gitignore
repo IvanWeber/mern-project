@@ -3,7 +3,9 @@ node_modules
 config
 client/.eslintcache
 client/src/img
+uploads/avatars
 ./client/.eslintcache
 ./client/src/img/user-avatar.jpg
 ./client/src/img
+./uploads/avatars
 .vscode/
