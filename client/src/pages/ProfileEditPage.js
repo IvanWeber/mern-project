@@ -62,7 +62,8 @@ export const ProfileEditPage = () => {
         </div>
         <iframe name="dummyframe" id="dummyframe" style={{display: 'none'}}></iframe>
           <form method="POST" action="/api/profile-edit/upload-avatar" encType="multipart/form-data" className="my-form" target="dummyframe" onSubmit={formSubmitHandler}>
-            <input type="file" name="file" onChange= {fileChangeHandler}/>
+            <label htmlFor="avatar">Добавьте ваш аватар</label>
+            <input type="file" name="file" onChange= {fileChangeHandler} id="avatar"/>
             <input type="submit" name="upload"/>
           </form>     
         <FeedbackLink /> 
