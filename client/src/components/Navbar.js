@@ -26,7 +26,6 @@ export const Navbar = () => {
 
         <a className='right dropdown-trigger dropdown-menu btn blue darken-1' href='/#' data-target='dropdown1'>Menu</a>
         <ul id='dropdown1' className='dropdown-content'>
-          {/* <li><a href="/" onClick={profileHandler}>Мой профиль</a></li> */}
           <li><Link to={'/profile/' + auth.userId}>Мой профиль</Link></li>
           <li><NavLink to="/links">Ссылки</NavLink></li>
           <li><NavLink to="/create">Создать ссылку</NavLink></li>
@@ -35,7 +34,6 @@ export const Navbar = () => {
           <li><a href="/" onClick={logoutHandler}>Выйти</a></li>
         </ul> 
         <ul id="nav-mobile" className="right hide-on-med-and-down long-nav-list">
-          {/* <li><a href="/" onClick={profileHandler}>Мой профиль</a></li> */}
           <li><Link to={'/profile/' + auth.userId}>Мой профиль</Link></li>
           <li><NavLink to="/links">Ссылки</NavLink></li>
           <li><NavLink to="/create">Создать ссылку</NavLink></li>
