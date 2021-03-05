@@ -23,7 +23,6 @@ export const UsersList = ({users}) => {
               <tr key={user._id}>
                 <td>{index + 1}</td>
                 <td>{user.name}</td>
-                <td>{user.email}</td>
                 <td>
                   <Link to={`/profile/${user._id}`}>Открыть</Link>
                 </td>
