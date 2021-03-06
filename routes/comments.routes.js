@@ -31,7 +31,6 @@ router.post(
 
 
     const comment = new Comment({ message, date, blogPostRef, owner: req.user.userId});
-    // const blogPost = BlogPost.findById({blogPostRef})
 
     await BlogPost.updateOne({_id: blogPostRef}, { $push: { comments: comment._id} })
 
