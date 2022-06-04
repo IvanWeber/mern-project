@@ -6,7 +6,8 @@ import {BlogForm} from '../components/BlogForm'
 import {BlogPostsList} from '../components/BlogPostsList'
 import {Loader} from '../components/Loader'
 import {FeedbackLink} from '../components/FeedbackLink'
-import avatarURL from '../img/user-avatar.jpg'
+// import avatarURL from '../img/user-avatar.jpg'
+//import avatarURL from ''
 
 export const ProfilePage = () => {
   const auth = useContext(AuthContext)
@@ -73,7 +74,7 @@ export const ProfilePage = () => {
   if (userId === authUserId) {
     return (
       <div className="row profile-page">
-        <img src={avatarURL} alt="" width="300px"/>
+        {/* <img src={avatarURL} alt="" width="300px"/> */}
         Profile Page {user.name}
         <BlogForm authUserId={authUserId}/>
         <BlogPostsList />
@@ -84,7 +85,7 @@ export const ProfilePage = () => {
 
   return (
     <div className="row profile-page">
-    <img src={avatarURL} alt="" width="300px"/>
+    {/* <img src={avatarURL} alt="" width="300px"/> */}
       Profile Page {user.name}
       <BlogPostsList />
       <FeedbackLink />
