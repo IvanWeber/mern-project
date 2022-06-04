@@ -61,12 +61,12 @@ export const ProfileEditPage = () => {
           />
           <label htmlFor="name" class="test2">Введите ваше имя</label>
         </div>
-        <iframe name="dummyframe" id="dummyframe" style={{display: 'none'}}></iframe>
+        {/* <iframe name="dummyframe" id="dummyframe" style={{display: 'none'}}></iframe>
           <form method="POST" action="/api/profile-edit/upload-avatar" encType="multipart/form-data" className="my-form" target="dummyframe" onSubmit={formSubmitHandler}>
             <label htmlFor="avatar">Добавьте ваш аватар</label>
             <input type="file" name="file" onChange= {fileChangeHandler} id="avatar"/>
             <input type="submit" name="upload"/>
-          </form>     
+          </form>      */}
         <FeedbackLink /> 
       </div>
     </div>
