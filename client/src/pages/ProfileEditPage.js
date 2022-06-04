@@ -59,7 +59,7 @@ export const ProfileEditPage = () => {
             onChange={e => setName(e.target.value)}
             onKeyPress={pressHandler}
           />
-          <label htmlFor="name">Введите ваше имя</label>
+          <label htmlFor="name" class="test2">Введите ваше имя</label>
         </div>
         <iframe name="dummyframe" id="dummyframe" style={{display: 'none'}}></iframe>
           <form method="POST" action="/api/profile-edit/upload-avatar" encType="multipart/form-data" className="my-form" target="dummyframe" onSubmit={formSubmitHandler}>
