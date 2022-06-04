@@ -47,7 +47,7 @@ export const ProfileEditPage = () => {
   }
 
   return (
-    <div className="row">
+    <div className="row asd-test2">
       {/* asd2 */}
       <div className="col s8 offset-s2" style={{paddingTop: '2rem'}}>
         <div className="input-field">
