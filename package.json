@@ -26,6 +26,8 @@
     "express-validator": "^6.9.2",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.11.11",
+    "react-redux": "^8.0.2",
+    "redux": "^4.2.0",
     "shortid": "^2.2.16"
   },
   "devDependencies": {
