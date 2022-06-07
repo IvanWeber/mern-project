@@ -7,6 +7,8 @@ import {Navbar} from './components/Navbar'
 import {Loader} from './components/Loader'
 import 'materialize-css'
 
+import {Counter} from './features/counter/Counter'
+
 
 function App() {
   const {token, login, logout, userId, ready} = useAuth()
@@ -25,6 +27,7 @@ function App() {
         {isAuthenticated && <Navbar />}
         <div className="container main-container">
           {routes}
+          <Counter />
         </div>
       </Router>
     </AuthContext.Provider>
