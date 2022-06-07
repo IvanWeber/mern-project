@@ -4,6 +4,8 @@ import {AuthContext} from '../context/AuthContext'
 import {useHistory} from 'react-router-dom'
 import {FeedbackLink} from '../components/FeedbackLink'
 
+import {Counter} from '../features/counter/Counter'
+
 export const ProfileEditPage = () => {
   const history = useHistory()
   const auth = useContext(AuthContext)
@@ -68,6 +70,7 @@ export const ProfileEditPage = () => {
             <input type="submit" name="upload"/>
           </form>      */}
         <FeedbackLink /> 
+        <Counter />
       </div>
     </div>
   )
