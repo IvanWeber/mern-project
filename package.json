@@ -2,14 +2,15 @@
   "name": "mern-project-att-3",
   "version": "1.0.0",
   "description": "mern stack",
-  "main": "app.js",
+  "main": "./dist/app.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=production node app.js",
-    "server": "nodemon app.js",
+    "start": "cross-env NODE_ENV=production node ./dist/app.js",
+    "server": "nodemon ./dist/app.js",
     "client": "npm run start --prefix client",
     "client:install": "npm install --prefix client",
     "client:build": "npm run build --prefix client",
-    "dev": "cross-env NODE_ENV=development concurrently \"npm run server\" \"npm run client\""
+    "dev": "cross-env NODE_ENV=development concurrently \"npm run server\" \"npm run client\"",
+    "tsc-build": "tsc -p tsconfig.json"
   },
   "keywords": [
     "mern",
@@ -32,8 +33,11 @@
     "shortid": "^2.2.16"
   },
   "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^17.0.41",
     "concurrently": "^5.3.0",
     "cross-env": "^7.0.3",
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.7",
+    "typescript": "^4.7.3"
   }
 }
