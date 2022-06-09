@@ -2,10 +2,10 @@
   "name": "mern-project-att-3",
   "version": "1.0.0",
   "description": "mern stack",
-  "main": "./ts-dist/app.js",
+  "main": "app.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=production node ./ts-dist/app.js",
-    "server": "nodemon ./ts-dist/app.js",
+    "start": "cross-env NODE_ENV=production node app.js",
+    "server": "nodemon app.js",
     "client": "npm run start --prefix client",
     "client:install": "npm install --prefix client",
     "client:build": "npm run build --prefix client",
