@@ -2,15 +2,15 @@
   "name": "mern-project-att-3",
   "version": "1.0.0",
   "description": "mern stack",
-  "main": "./dist/app.js",
+  "main": "./ts-dist/app.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=production node ./dist/app.js",
-    "server": "nodemon ./dist/app.js",
+    "start": "cross-env NODE_ENV=production node ./ts-dist/app.js",
+    "server": "nodemon ./ts-dist/app.js",
     "client": "npm run start --prefix client",
     "client:install": "npm install --prefix client",
     "client:build": "npm run build --prefix client",
     "dev": "cross-env NODE_ENV=development concurrently \"npm run server\" \"npm run client\"",
-    "tsc-build": "tsc -p tsconfig.json"
+    "ts-build": "tsc -p tsconfig.json"
   },
   "keywords": [
     "mern",
